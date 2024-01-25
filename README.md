@@ -10,4 +10,4 @@ The LAMMPS project web site is at
 
 I will be following along with running simulations for a research project. 
 
-If interested in getting started please see `tutorial/` directory, located in the root directory of this repo.
+If interested in getting started please see `tutorials/` directory, located in the root directory of this repo.

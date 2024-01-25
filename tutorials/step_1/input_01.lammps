@@ -27,6 +27,7 @@ neigh_modify every 1 delay 5 check yes
 
 # 4) Visualization
 thermo 10
+dump mydmp all atom 1000 dump.lammpstrj
 
 # 5) Run
 minimize 1.0e-4 1.0e-6 1000 10000
