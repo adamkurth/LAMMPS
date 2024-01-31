@@ -95,4 +95,3 @@ lmp_serial -in input_01.lammps
 Load this file in VMD, and you will see the simulation.
 
 - To view the simulation, click `Graphics` -> `Representations` -> `Drawing Method` -> `VDW` -> `Apply`. 
-
