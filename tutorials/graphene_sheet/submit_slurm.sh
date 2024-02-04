@@ -15,10 +15,10 @@ QOS="$5"
 TIME="$6"                                                                       
 TAG="$7"                                                                        
 
-echo "Loading LAMMPS: lammps/29Sep2021"                                         
+echo "Loading LAMMPS module..."
 module load lammps/29Sep2021                                                    
                                                                                 
-echo "Changing to LAMMPS directory"                                             
+echo "Changing to LAMMPS project directory..."
 cd /home/amkurth/Development/lammps_project/LAMMPS/tutorials/graphene_sheet    
 
 # Define simulation parameters                                                  
@@ -44,13 +44,18 @@ echo "#SBATCH --output=$OUTPUT_DIR/%x.out" >> $SLURMFILE
 echo "#SBATCH --error=$OUTPUT_DIR/%x.err" >> $SLURMFILE                         
 echo "#SBATCH --time=$TIME" >> $SLURMFILE                                       
 echo "#SBATCH --ntasks=$TASKS" >> $SLURMFILE                                    
+echo "#SBATCH --cpus-per-task=$SLURM_CPUS_PER_TASK" >> $SLURMFILE  # Assumes you want to set CPUs per task to match TASKS
 echo "#SBATCH --partition=$PARTITION" >> $SLURMFILE                             
 echo "#SBATCH --qos=$QOS" >> $SLURMFILE                                         
 echo "#SBATCH --chdir=$PWD" >> $SLURMFILE                                       
+echo "export OMP_NUM_THREADS=\$SLURM_CPUS_PER_TASK" >> $SLURMFILE  # Set OMP_NUM_THREADS to match SLURM_CPUS_PER_TASK
 echo "" >> $SLURMFILE                                                           
 
+# Ensure the LAMMPS executable path is correct for your environment             
+LAMMPS_EXEC="lmp"  # Use the correct executable name as per your module load
+
 # Add the command to run LAMMPS                                                 
-echo "lmp -in $INPUT_SCRIPT > $OUTPUT_DIR/$RUN.out 2> $OUTPUT_DIR/$RUN.err" >> $SLURMFILE
+echo "$LAMMPS_EXEC -in $INPUT_SCRIPT > $OUTPUT_DIR/$RUN.out 2> $OUTPUT_DIR/$RUN.err" >> $SLURMFILE
 
 # Submit the job                                                                
 echo "Submitting SLURM job: $RUN with $TASKS tasks..."
