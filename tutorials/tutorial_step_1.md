@@ -4,6 +4,8 @@
 
 *Followed along here using* [LAMMPS Tutorials](https://lammpstutorials.github.io/lammpstutorials-version1.0/tutorials/01-SimpleMolecularSimulation.html#input)
 
+*If following along, all of the contents here will be in the `LAMMPS/tutorials/graphene_sheet/step_1` directory.*
+
 1. We make a new file called `input_01.lammps` by running the following command:
 
 ```bash
