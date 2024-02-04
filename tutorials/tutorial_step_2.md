@@ -6,6 +6,8 @@ After cloning the github repo here [github repo](https://github.com/lammps/lammp
 ### Couette and Poiseuille flow in a 2d channel
 
 *Followed along* [here](https://youtu.be/7RtRerwJqQw?si=_mIPJXG0qJ6AxLLN)
+
+*If following along, all of the contents here will be in the `LAMMPS/tutorials/step_2` directory.*
   
 Make sure that the github repo is cloned and ran `cmake` and `make install` in the `build` directory.
 
